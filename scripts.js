@@ -39,6 +39,7 @@ const generatePassword = () => {
   inputEl.value = password;
 
   calculatePasswordStrength();
+  calculateFontSize();
 
   // console.log(password);
 };
@@ -75,6 +76,26 @@ const calculatePasswordStrength = () => {
     SecurityIndicatorBarEl.classList.add("completed");
   } else {
     SecurityIndicatorBarEl.classList.remove("completed");
+  }
+};
+
+calculateFontSize = () => {
+  if (passwordLength > 45) {
+    inputEl.classList.remove("font-sm");
+    inputEl.classList.remove("font-xs");
+    inputEl.classList.add("font-xxs");
+  } else if (passwordLength > 32) {
+    inputEl.classList.remove("font-sm");
+    inputEl.classList.add("font-xs");
+    inputEl.classList.remove("font-xxs");
+  } else if (passwordLength > 22) {
+    inputEl.classList.add("font-sm");
+    inputEl.classList.remove("font-xs");
+    inputEl.classList.remove("font-xxs");
+  } else {
+    inputEl.classList.remove("font-sm");
+    inputEl.classList.remove("font-xs");
+    inputEl.classList.remove("font-xxs");
   }
 };
 
